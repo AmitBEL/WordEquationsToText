@@ -11,7 +11,7 @@ def replace_path_suffix(path, _suffix_length, _new_suffix):
     :param path:            original path
     :param _suffix_length:  the number of chars to be deleted
                             from the end of path
-    :param new_suffix:      the new suffix to be added to path
+    :param _new_suffix:      the new suffix to be added to path
     :return:                new path where the last _suffix_length
                             chars are replaced with _new_suffix
     """
@@ -39,7 +39,6 @@ def extract_zip_file(_zip_path):
     """
     with zipfile.ZipFile(_zip_path, 'r') as zip_ref:
         _extraction_directory = replace_path_suffix(_zip_path, _suffix_length=4, _new_suffix="/")
-        # _extraction_directory = _zip_path[0:-4] + '/'
         zip_ref.extractall(_extraction_directory)
         return _extraction_directory
 
